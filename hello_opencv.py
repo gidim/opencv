@@ -7,6 +7,11 @@ import cv2
 cap = cv2.VideoCapture(0)
 cv2.namedWindow('camshift')
 
+'''
+This file records and saves (in .avi format) video in gray scale
+
+'''
+
 # # Define the codec and create VideoWriter object
 fourcc = cv2.cv.FOURCC(*'XVID')
 out = cv2.VideoWriter('output.avi', -1, 25, (640,480), 1)
@@ -29,7 +34,6 @@ while(True):
 	    # Our operations on the frame come here
     	gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
-    	cv2.circle(frame,(447,63), 63, (0,0,255), -1)
     	# Display the resulting frame in gray. For color, pass frame as second parameter
     	cv2.imshow('my window', gray)
 
@@ -41,36 +45,3 @@ while(True):
 cap.release()
 out.release()
 cv2.destroyAllWindows()
-
-# import numpy as np
-# import cv2
-
-# cap = cv2.VideoCapture(0)
-# cv2.namedWindow('camshift')
-
-# # Define the codec and create VideoWriter object
-# fourcc = cv2.cv.FOURCC(*'XVID')
-# out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
-
-# while(True):
-#     ret, frame = cap.read()
-    
-#     if (ret):
-#         frame = cv2.flip(frame,0)
-
-#         # write the flipped frame
-#         out.write(frame)
-
-#         cv2.imshow('frame',frame)
-#         if cv2.waitKey(1) & 0xFF == ord('q'):
-#             break
-#     else:
-#         break
-
-# # Release everything if job is finished
-# cap.release()
-# out.release()
-# cv2.destroyAllWindows()
-
-        
-#         
